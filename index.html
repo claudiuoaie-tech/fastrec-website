@@ -1,219 +1,973 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastRec | Premium Industrial Recruitment</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0a0a0a',
-                            light: '#f4f4f5',
-                            accent: '#2563eb',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #0a0a0a; color: #f4f4f5; overflow-x: hidden; }
-        .glass-nav { background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .marquee-container { overflow: hidden; white-space: nowrap; width: 100vw; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.2); color: transparent; }
-        .hover-lift { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .hover-lift:hover { transform: translateY(-10px); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastRec — The way to recruit | Industrial & Logistics Staffing</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<meta name="description" content="FastRec deploys vetted, compliant warehouse, driving and manufacturing talent across the UK — in as little as 24 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#070815;
+  --ink-2:#0b0d20;
+  --text:#eef0fb;
+  --muted:#9aa1bd;
+  --line:rgba(255,255,255,.09);
+  --glass:rgba(255,255,255,.04);
+  --indigo:#6366f1;
+  --violet:#a855f7;
+  --pink:#ec4899;
+  --teal:#2dd4bf;
+  --amber:#f59e0b;
+  --lime:#bef264;
+  --grad:linear-gradient(110deg,#818cf8 0%,#c084fc 38%,#f472b6 70%,#fb923c 100%);
+  --grad-2:linear-gradient(120deg,#34d399,#22d3ee);
+  --r:18px;
+  --r-lg:28px;
+  --maxw:1180px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--ink);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(40rem 30rem at 12% -8%, rgba(99,102,241,.30), transparent 60%),
+    radial-gradient(36rem 28rem at 90% 0%, rgba(236,72,153,.22), transparent 60%),
+    radial-gradient(40rem 34rem at 80% 80%, rgba(45,212,191,.16), transparent 60%);
+}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+h1,h2,h3,h4,.brand{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;font-weight:600}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.gtext{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;
+  font-size:12.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);backdrop-filter:blur(8px)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Space Grotesk',sans-serif;
+  font-weight:500;font-size:15px;padding:14px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,border-color .3s;will-change:transform}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--grad);color:#0a0a14;font-weight:600;box-shadow:0 10px 30px -8px rgba(168,85,247,.55)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px -10px rgba(168,85,247,.7)}
+.btn-ghost{background:var(--glass);color:var(--text);border-color:var(--line);backdrop-filter:blur(8px)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:6px}
+
+/* Nav */
+header{position:fixed;top:0;left:0;width:100%;z-index:50;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(7,8,21,.72);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:700;letter-spacing:-.03em}
+.brand .mark{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center;
+  box-shadow:0 8px 22px -6px rgba(168,85,247,.6)}
+.brand .mark svg{width:20px;height:20px;color:#0a0a14}
+.brand .rec{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-logo{height:30px;width:auto;display:block}
+.foot-logo{height:34px}
+@media(max-width:640px){.brand-logo{height:26px}}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a.lnk{font-size:14.5px;color:var(--muted);font-weight:500;transition:color .25s;position:relative}
+.nav-links a.lnk:hover{color:var(--text)}
+.nav-links a.lnk::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--grad);transition:width .3s var(--ease)}
+.nav-links a.lnk:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--text);cursor:pointer}
+.burger svg{width:22px;height:22px;margin:auto}
+
+/* Mobile menu */
+.mobile{position:fixed;inset:0;z-index:49;background:rgba(7,8,21,.96);backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
+  opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile.open{opacity:1;visibility:visible}
+.mobile a{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:500;color:var(--text)}
+.mobile a.small{font-size:16px}
+
+/* Hero */
+.hero{position:relative;padding:170px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.02;font-weight:700;margin:26px 0 0}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--muted);max-width:33ch;margin:26px 0 34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-stats{display:flex;gap:30px;margin-top:46px;flex-wrap:wrap}
+.hero-stats .s b{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;display:block;line-height:1}
+.hero-stats .s span{font-size:13px;color:var(--muted)}
+
+/* Hero visual card */
+.hero-card{position:relative;border-radius:var(--r-lg);padding:1px;background:linear-gradient(150deg,rgba(255,255,255,.18),rgba(255,255,255,.02));
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
+.hero-card-inner{border-radius:calc(var(--r-lg) - 1px);background:linear-gradient(165deg,#11132a,#0a0b1c);padding:26px;overflow:hidden}
+.hc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.hc-live{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);font-weight:500}
+.hc-live i{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.hc-tag{font-size:11px;font-family:'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.role{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(255,255,255,.025);margin-bottom:11px;transition:transform .4s var(--ease),border-color .4s}
+.role:hover{transform:translateX(5px);border-color:rgba(255,255,255,.2)}
+.role .av{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;font-size:18px}
+.role .meta{flex:1;min-width:0}
+.role .meta b{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:500;display:block}
+.role .meta span{font-size:12.5px;color:var(--muted)}
+.role .pill{font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;white-space:nowrap}
+.pill-live{background:rgba(45,212,191,.14);color:#5eead4}
+.pill-soon{background:rgba(245,158,11,.14);color:#fcd34d}
+.pill-done{background:rgba(99,102,241,.16);color:#a5b4fc}
+.hc-foot{margin-top:20px;display:flex;align-items:center;justify-content:space-between;
+  padding-top:18px;border-top:1px solid var(--line)}
+.hc-foot .big{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700}
+.hc-foot .lbl{font-size:12px;color:var(--muted)}
+
+/* Marquee */
+.marquee{margin-top:80px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;gap:64px;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;color:rgba(255,255,255,.32);white-space:nowrap;letter-spacing:-.02em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Section shell */
+section{position:relative;z-index:2}
+.sec{padding:100px 0}
+.sec-head{max-width:640px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.06;margin:16px 0 0}
+.sec-head p{color:var(--muted);font-size:1.08rem;margin-top:16px}
+
+/* Services bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.card{position:relative;border-radius:var(--r);border:1px solid var(--line);background:var(--glass);
+  backdrop-filter:blur(8px);padding:30px;overflow:hidden;transition:transform .5s var(--ease),border-color .5s,background .5s}
+.card:hover{transform:translateY(-7px);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.055)}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;opacity:0;transition:opacity .5s;
+  background:var(--accent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.card:hover::after{opacity:.6}
+.card .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:22px;background:var(--soft)}
+.card .ico svg{width:25px;height:25px}
+.card h3{font-size:1.4rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.97rem}
+.card .feat{margin-top:18px;display:flex;flex-direction:column;gap:9px}
+.card .feat li{list-style:none;display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--muted)}
+.card .feat li svg{width:16px;height:16px;flex-shrink:0;color:var(--c)}
+.col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-2{grid-column:span 2}.col-6{grid-column:span 6}
+.glow{position:absolute;width:230px;height:230px;border-radius:50%;filter:blur(70px);opacity:.5;top:-60px;right:-50px;background:var(--c);pointer-events:none}
+
+/* Stats band */
+.statband{border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(140deg,rgba(99,102,241,.1),rgba(236,72,153,.06));
+  padding:54px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative;overflow:hidden}
+.statband .st b{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:700;line-height:1;display:block}
+.statband .st span{color:var(--muted);font-size:.95rem;margin-top:8px;display:block}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{position:relative;padding:30px;border-radius:var(--r);border:1px solid var(--line);background:var(--glass);transition:transform .5s var(--ease),border-color .5s}
+.step:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2)}
+.step .num{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--violet);margin-bottom:16px}
+.step h4{font-size:1.18rem;margin-bottom:9px}
+.step p{color:var(--muted);font-size:.93rem}
+.step .line{position:absolute;top:46px;right:-13px;width:26px;height:2px;background:linear-gradient(90deg,var(--violet),transparent);z-index:3}
+
+/* Split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{position:relative;border-radius:var(--r-lg);padding:46px;overflow:hidden;border:1px solid var(--line);min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+.panel.clients{background:linear-gradient(155deg,rgba(99,102,241,.18),rgba(168,85,247,.07))}
+.panel.candidates{background:linear-gradient(155deg,rgba(45,212,191,.16),rgba(34,211,238,.06))}
+.panel h3{font-size:1.9rem;margin:18px 0 12px}
+.panel p{color:var(--muted);max-width:40ch;margin-bottom:26px}
+.panel .lnk-arrow{display:inline-flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px}
+.panel .lnk-arrow svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.panel:hover .lnk-arrow svg{transform:translateX(6px)}
+.panel .eb{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Testimonial */
+.quote{border-radius:var(--r-lg);border:1px solid var(--line);background:var(--glass);padding:60px;text-align:center;max-width:880px;margin:0 auto}
+.quote .stars{color:var(--amber);font-size:18px;letter-spacing:3px;margin-bottom:22px}
+.quote blockquote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:500;line-height:1.4;letter-spacing:-.02em}
+.quote .who{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:14px}
+.quote .who .av{width:46px;height:46px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#0a0a14}
+.quote .who b{font-family:'Space Grotesk',sans-serif;font-weight:500;display:block;font-size:15px}
+.quote .who span{font-size:13px;color:var(--muted)}
+
+/* CTA */
+.cta{position:relative;border-radius:var(--r-lg);overflow:hidden;padding:74px 50px;text-align:center;
+  background:linear-gradient(135deg,#1a1340,#2a103a 55%,#0e1f2e);border:1px solid var(--line)}
+.cta .glow1{position:absolute;width:360px;height:360px;border-radius:50%;filter:blur(90px);background:var(--violet);opacity:.4;top:-120px;left:-60px}
+.cta .glow2{position:absolute;width:340px;height:340px;border-radius:50%;filter:blur(90px);background:var(--teal);opacity:.32;bottom:-130px;right:-50px}
+.cta h2{font-size:clamp(2.1rem,4.6vw,3.3rem);line-height:1.06;position:relative}
+.cta p{color:var(--muted);max-width:46ch;margin:18px auto 32px;font-size:1.08rem;position:relative}
+.cta .hero-cta{justify-content:center;position:relative}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:100px;position:relative;z-index:2}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:46px}
+.foot-grid p{color:var(--muted);font-size:.95rem;max-width:34ch;margin-top:18px}
+.foot-grid h5{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.foot-grid ul a{color:var(--text);font-size:.95rem;opacity:.85;transition:opacity .25s,color .25s}
+.foot-grid ul a:hover{opacity:1;color:#fff}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:26px;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:12px}
+.foot-bottom .socials{display:flex;gap:12px}
+.foot-bottom .socials a{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;transition:border-color .3s,transform .3s}
+.foot-bottom .socials a:hover{border-color:rgba(255,255,255,.3);transform:translateY(-3px)}
+.foot-bottom .socials svg{width:17px;height:17px}
+
+/* Job board */
+.jobs-head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:34px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:500;color:var(--muted);padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);cursor:pointer;transition:color .25s,border-color .25s,background .25s}
+.chip:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+.chip.active{color:#0a0a14;background:var(--grad);border-color:transparent;font-weight:600}
+.job-count{font-size:13px;color:var(--muted)}
+.job-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.job{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--glass);border-radius:var(--r);padding:26px;transition:transform .5s var(--ease),border-color .5s,background .5s}
+.job:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05)}
+.job-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.job-cat{font-size:11px;font-weight:600;letter-spacing:.03em;padding:5px 11px;border-radius:999px;text-transform:uppercase}
+.job-type{font-size:11px;font-weight:600;color:var(--muted);padding:5px 11px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.job h3{font-size:1.22rem;margin-bottom:15px}
+.job-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.job-meta div{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted)}
+.job-meta svg{width:16px;height:16px;flex-shrink:0;opacity:.85}
+.job-meta .pay{color:#5eead4;font-weight:500}
+.job-apply{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14.5px;padding:12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);cursor:pointer;transition:border-color .3s,background .3s}
+.job-apply:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
+.job-apply svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.job-apply:hover svg{transform:translateX(4px)}
+.job.hide{display:none}
+.cat-warehouse{background:rgba(99,102,241,.16);color:#a5b4fc}
+.cat-driving{background:rgba(45,212,191,.16);color:#5eead4}
+.cat-manufacturing{background:rgba(236,72,153,.16);color:#f9a8d4}
+.cat-forklift{background:rgba(245,158,11,.16);color:#fcd34d}
+@media(max-width:980px){.job-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.job-grid{grid-template-columns:1fr}.jobs-head{margin-top:26px}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero{padding:140px 0 60px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .bento .col-3,.bento .col-2{grid-column:span 1}
+  .bento .col-4,.bento .col-6{grid-column:1 / -1}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step .line{display:none}
+  .statband{grid-template-columns:repeat(2,1fr);gap:36px 20px}
+  .split{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.nav-cta .btn-ghost,.nav-cta .btn-primary{display:none}.burger{display:grid}
+  .sec{padding:74px 0}.cta{padding:54px 26px}.quote{padding:40px 24px}
+  .bento{grid-template-columns:1fr}.steps{grid-template-columns:1fr}
+  .bento .col-3,.bento .col-2,.bento .col-4,.bento .col-6{grid-column:1 / -1}
+  .statband{grid-template-columns:1fr 1fr;padding:40px 26px}
+  .foot-grid{grid-template-columns:1fr}.panel{padding:34px}
+  .hero-stats{gap:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* Modal forms */
+dialog{border:none;padding:0;background:transparent;max-width:540px;width:calc(100% - 32px);color:var(--text)}
+dialog::backdrop{background:rgba(5,6,15,.74);backdrop-filter:blur(5px)}
+dialog[open]{animation:popin .4s var(--ease)}
+@keyframes popin{from{opacity:0;transform:translateY(16px) scale(.98)}}
+.modal{background:linear-gradient(165deg,#13152c,#0a0b1c);border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 40px 100px -30px rgba(0,0,0,.85);max-height:90vh;overflow:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+.modal-head h3{font-size:1.5rem;margin-top:12px}
+.modal-head p{color:var(--muted);font-size:.94rem;margin-top:7px;max-width:38ch}
+.modal-close{width:38px;height:38px;flex-shrink:0;border-radius:11px;border:1px solid var(--line);background:var(--glass);color:var(--text);cursor:pointer;display:grid;place-items:center;transition:border-color .25s}
+.modal-close:hover{border-color:rgba(255,255,255,.3)}
+.modal-close svg{width:18px;height:18px}
+.field{margin-bottom:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:7px}
+.field label .req{color:var(--pink)}
+.field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:15px;transition:border-color .25s,background .25s}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--violet);background:rgba(255,255,255,.07)}
+.field select option{background:#13152c;color:var(--text)}
+.field input[type=file]{padding:9px 12px;cursor:pointer}
+.field input[type=file]::file-selector-button{margin-right:12px;border:none;border-radius:9px;padding:9px 14px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:13px;cursor:pointer;background:rgba(168,85,247,.18);color:#d8b4fe}
+.field .hint{font-size:12px;color:var(--muted);margin-top:7px}
+.modal form .btn{width:100%;margin-top:8px}
+.honeypot{position:absolute!important;left:-9999px;opacity:0;height:0;width:0}
+.form-status{font-size:14px;line-height:1.5;margin-top:14px;padding:13px 15px;border-radius:12px;display:none}
+.form-status.ok{display:block;background:rgba(45,212,191,.12);color:#5eead4;border:1px solid rgba(45,212,191,.32)}
+.form-status.err{display:block;background:rgba(244,63,94,.12);color:#fda4af;border:1px solid rgba(244,63,94,.32)}
+@media(max-width:480px){.row2{grid-template-columns:1fr}.modal{padding:24px}}
+</style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-white">
+<body>
+<div class="grain" aria-hidden="true"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
-        <div class="max-w-screen-2xl mx-auto px-4 lg:px-12 h-20 md:h-24 flex items-center justify-between">
-            <a href="index.html" class="flex-shrink-0 z-20">
-                <img class="h-8 md:h-10 w-auto object-contain bg-white/90 p-1 rounded" src="assets/images/Logo PNG 2560x1280.png" alt="FastRec">
-            </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex space-x-12 absolute left-1/2 -translate-x-1/2">
-                <a href="clients.html" class="text-sm font-medium tracking-wide hover:text-brand-accent transition-colors">Clients</a>
-                <a href="candidates.html" class="text-sm font-medium tracking-wide hover:text-brand-accent transition-colors">Candidates</a>
-                <a href="jobs.html" class="text-sm font-medium tracking-wide hover:text-brand-accent transition-colors">Job Board</a>
-            </div>
-            <div class="hidden lg:flex items-center space-x-6">
-                <a href="contact.html" class="text-sm font-medium hover:text-brand-accent transition-colors">Contact</a>
-                <a href="contact.html" class="bg-white text-black px-6 py-3 rounded-full text-sm font-bold tracking-wide hover:bg-brand-accent hover:text-white transition-all duration-300">Submit CV</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="lg:hidden text-white z-20 p-2 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-brand-dark flex flex-col items-center justify-center space-y-8 text-2xl z-10">
-            <a href="clients.html" class="hover:text-brand-accent transition-colors">Clients</a>
-            <a href="candidates.html" class="hover:text-brand-accent transition-colors">Candidates</a>
-            <a href="jobs.html" class="hover:text-brand-accent transition-colors">Job Board</a>
-            <a href="contact.html" class="hover:text-brand-accent transition-colors">Contact</a>
-            <a href="contact.html" class="bg-brand-accent text-white px-8 py-4 rounded-full font-bold mt-4">Submit CV</a>
-        </div>
+<!-- NAV -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="FastRec — the way to recruit">
+      <img src="assets/logo-white.png" alt="FastRec — the way to recruit" class="brand-logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services" class="lnk">Services</a>
+      <a href="#process" class="lnk">Process</a>
+      <a href="#jobs" class="lnk">Jobs available</a>
+      <a href="#contact" class="lnk">Contact</a>
     </nav>
+    <div class="nav-cta">
+      <a href="#audience" class="btn btn-ghost" data-modal="candidate">Find work</a>
+      <a href="#contact" class="btn btn-primary" data-modal="hire">Hire talent
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-28 pb-12 px-4 lg:px-12 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover object-center filter grayscale" alt="Warehouse Background">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-screen-2xl mx-auto w-full">
-            <div class="gsap-hero overflow-hidden mb-2">
-                <!-- Adjusted font sizes for perfect scaling from mobile to desktop -->
-                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight font-extrabold tracking-tighter uppercase w-full break-words">
-                    Industrial
-                </h1>
-            </div>
-            <div class="gsap-hero overflow-hidden mb-8">
-                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight font-extrabold tracking-tighter uppercase text-outline w-full break-words">
-                    Workforce
-                </h1>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mt-8 gsap-fade">
-                <p class="text-lg md:text-xl text-gray-400 font-light max-w-xl leading-relaxed">
-                    Precision staffing for the UK's most demanding industrial operations. Temporary scaling, permanent placements, and complete rota management.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 md:justify-end">
-                    <a href="clients.html" class="bg-brand-accent text-white text-center px-8 py-4 rounded-full font-bold tracking-wide hover:bg-blue-500 transition-all">Hire Talent</a>
-                    <a href="jobs.html" class="border border-white/20 text-center px-8 py-4 rounded-full font-bold tracking-wide hover:bg-white hover:text-black transition-all">Find Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- MOBILE MENU -->
+<div class="mobile" id="mobile">
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#jobs">Jobs available</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary small" data-modal="hire">Hire talent</a>
+</div>
 
-    <!-- Infinite Marquee -->
-    <div class="marquee-container bg-brand-dark">
-        <div class="marquee-content font-display text-2xl md:text-4xl font-bold uppercase tracking-widest text-gray-600">
-            WAREHOUSING &bull; LOGISTICS &bull; MANUFACTURING &bull; PRODUCTION &bull; ASSEMBLY &bull; WAREHOUSING &bull; LOGISTICS &bull; MANUFACTURING &bull; PRODUCTION &bull; ASSEMBLY &bull;
+<a id="top"></a>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="dot"></span> UK Industrial &amp; Logistics Staffing</span>
+        <h1 class="reveal">Hire faster.<br><span class="gtext">Scale smarter.</span></h1>
+        <p class="lead reveal">FastRec deploys vetted, fully-compliant warehouse, driving and manufacturing talent — on-site in as little as 24 hours.</p>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary" data-modal="hire">Request workers
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#services" class="btn btn-ghost">Explore services</a>
         </div>
+        <div class="hero-stats reveal">
+          <div class="s"><b class="count" data-to="24" data-suffix="hr">0</b><span>Avg. deployment</span></div>
+          <div class="s"><b class="count" data-to="5000" data-suffix="+">0</b><span>Active workers</span></div>
+          <div class="s"><b class="count" data-to="98" data-suffix="%">0</b><span>Shift fill rate</span></div>
+        </div>
+      </div>
+
+      <!-- Live deployment card -->
+      <div class="hero-card reveal">
+        <div class="hero-card-inner">
+          <div class="hc-head">
+            <span class="hc-live"><i></i> Live deployments</span>
+            <span class="hc-tag">Today</span>
+          </div>
+          <div class="role">
+            <span class="av" style="background:rgba(99,102,241,.16)">📦</span>
+            <span class="meta"><b>Warehouse Operatives ×12</b><span>Sheffield · DC2 · Nights</span></span>
+            <span class="pill pill-live">On-site</span>
+          </div>
+          <div class="role">
+            <span class="av" style="background:rgba(45,212,191,.16)">🚚</span>
+            <span class="meta"><b>Class 2 Drivers ×4</b><span>Leeds · Multi-drop</span></span>
+            <span class="pill pill-soon">Dispatching</span>
+          </div>
+          <div class="role">
+            <span class="av" style="background:rgba(236,72,153,.16)">🏭</span>
+            <span class="meta"><b>Production Line ×20</b><span>Rotherham · Day shift</span></span>
+            <span class="pill pill-done">Filled</span>
+          </div>
+          <div class="hc-foot">
+            <div><div class="lbl">Shifts filled this week</div><div class="big gtext">1,284</div></div>
+            <div style="text-align:right"><div class="lbl">Compliance</div><div class="big" style="color:var(--teal)">100%</div></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Agency Stats / About Grid -->
-    <section class="py-20 md:py-32 px-4 lg:px-12 bg-zinc-950">
-        <div class="max-w-screen-2xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                <div class="lg:col-span-5 gsap-scroll">
-                    <h2 class="font-display text-3xl md:text-5xl font-bold uppercase mb-6 md:mb-8">Established in 2018. Built for Scale.</h2>
-                    <p class="text-base md:text-lg text-gray-400 mb-8 leading-relaxed">
-                        We don't just fill gaps; we engineer reliable workforces. By combining aggressive nationwide talent acquisition with local operational expertise, FastRec delivers industrial personnel that keep supply chains moving.
-                    </p>
-                    <a href="contact.html" class="text-brand-accent font-bold tracking-widest uppercase text-sm border-b border-brand-accent pb-1 hover:text-white transition-colors">Partner With Us</a>
-                </div>
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                    <div class="bg-zinc-900 p-8 md:p-10 rounded-2xl hover-lift gsap-scroll">
-                        <div class="text-4xl md:text-5xl mb-6">⏱️</div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-3">Temporary Staffing</h3>
-                        <p class="text-sm md:text-base text-gray-400">Rapid deployment of vetted personnel for peak seasons, immediate cover, and flexible shifts.</p>
-                    </div>
-                    <div class="bg-zinc-900 p-8 md:p-10 rounded-2xl hover-lift gsap-scroll">
-                        <div class="text-4xl md:text-5xl mb-6">🎯</div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-3">Permanent Hires</h3>
-                        <p class="text-sm md:text-base text-gray-400">Targeted headhunting for skilled industrial professionals, supervisors, and site management.</p>
-                    </div>
-                    <div class="bg-zinc-900 p-8 md:p-10 rounded-2xl hover-lift gsap-scroll">
-                        <div class="text-4xl md:text-5xl mb-6">⚙️</div>
-                        <h3 class="text-xl md:text-2xl font-bold font-display mb-3">Rota Management</h3>
-                        <p class="text-sm md:text-base text-gray-400">Streamlined coordination, compliance tracking, and automated shift allocation for large teams.</p>
-                    </div>
-                    <div class="bg-brand-accent p-8 md:p-10 rounded-2xl hover-lift gsap-scroll flex flex-col justify-center">
-                        <h3 class="text-2xl md:text-3xl font-bold font-display mb-4 text-white">Need staff urgently?</h3>
-                        <p class="text-blue-100 mb-6 text-sm md:text-base">Call our rapid response team directly.</p>
-                        <a href="tel:+441145519988" class="text-xl md:text-2xl font-bold text-white tracking-wider break-words">+44 114 551 9988</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Marquee -->
+    <div class="marquee reveal" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Warehousing</span><span>•</span><span>HGV &amp; Driving</span><span>•</span><span>Manufacturing</span><span>•</span><span>E-commerce Fulfilment</span><span>•</span><span>Cold Storage</span><span>•</span><span>Food Production</span><span>•</span>
+        <span>Warehousing</span><span>•</span><span>HGV &amp; Driving</span><span>•</span><span>Manufacturing</span><span>•</span><span>E-commerce Fulfilment</span><span>•</span><span>Cold Storage</span><span>•</span><span>Food Production</span><span>•</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--violet);box-shadow:0 0 12px var(--violet)"></span> What we do</span>
+      <h2>Staffing built for the<br>pace of the warehouse.</h2>
+      <p>Four focused services covering every workforce need across logistics, fulfilment and manufacturing.</p>
+    </div>
+
+    <div class="bento">
+      <!-- Temp staffing (big) -->
+      <article class="card col-3 reveal" style="--accent:linear-gradient(120deg,#818cf8,#a855f7);--c:#818cf8;--soft:rgba(99,102,241,.14)">
+        <span class="glow" style="--c:#6366f1"></span>
+        <div class="ico" style="color:#a5b4fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" stroke-linejoin="round"/></svg></div>
+        <h3>Temporary Staffing</h3>
+        <p>Absorb peak seasons and volume spikes with a live pool of reliable operatives, pickers and line workers — ready when you are.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Same-day &amp; next-day dispatch</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% Right-to-Work checked</li>
+        </ul>
+      </article>
+
+      <!-- Permanent (big) -->
+      <article class="card col-3 reveal" style="--accent:linear-gradient(120deg,#34d399,#22d3ee);--c:#2dd4bf;--soft:rgba(45,212,191,.14)">
+        <span class="glow" style="--c:#2dd4bf"></span>
+        <div class="ico" style="color:#5eead4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg></div>
+        <h3>Permanent Hires</h3>
+        <p>We act as an extension of your HR team to headhunt supervisors, managers and skilled technical staff that stay for the long haul.</p>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Vetted, rebate-backed placements</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Management &amp; engineering search</li>
+        </ul>
+      </article>
+
+      <!-- Workforce mgmt (wide) -->
+      <article class="card col-4 reveal" style="--accent:linear-gradient(120deg,#f472b6,#a855f7);--c:#ec4899;--soft:rgba(236,72,153,.14)">
+        <span class="glow" style="--c:#ec4899"></span>
+        <div class="ico" style="color:#f9a8d4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16" stroke-linecap="round"/></svg></div>
+        <h3>On-Site Workforce Management</h3>
+        <p>For high-volume sites, we take full ownership of daily coordination — rota planning, allocation, attendance and a dedicated on-site account manager living and breathing your operation.</p>
+        <ul class="feat" style="flex-direction:row;flex-wrap:wrap;gap:9px 24px">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Automated allocations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Attendance tracking</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Payroll integration</li>
+        </ul>
+      </article>
+
+      <!-- Compliance (narrow) -->
+      <article class="card col-2 reveal" style="--accent:linear-gradient(120deg,#fbbf24,#fb923c);--c:#f59e0b;--soft:rgba(245,158,11,.14)">
+        <span class="glow" style="--c:#f59e0b"></span>
+        <div class="ico" style="color:#fcd34d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Compliance &amp; Payroll</h3>
+        <p>RTW, AWR and weekly pay — handled end-to-end so you carry zero risk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="statband reveal">
+      <div class="st"><b class="count gtext" data-to="5000" data-suffix="+">0</b><span>Active workers on our books</span></div>
+      <div class="st"><b class="count" data-to="24" data-suffix="hr" style="color:var(--teal)">0</b><span>Average deployment time</span></div>
+      <div class="st"><b class="count" data-to="98" data-suffix="%" style="color:var(--amber)">0</b><span>Shifts filled on request</span></div>
+      <div class="st"><b class="count" data-to="150" data-suffix="+" style="color:var(--pink)">0</b><span>Client sites supported</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--teal);box-shadow:0 0 12px var(--teal)"></span> How it works</span>
+      <h2>From brief to boots-on-site<br>in four moves.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="line"></span><div class="num">STEP 01</div><h4>Brief</h4><p>Tell us the roles, shifts, site and volume. A specialist consultant owns your account from minute one.</p></div>
+      <div class="step reveal"><span class="line"></span><div class="num">STEP 02</div><h4>Match</h4><p>We filter our vetted pool by skill, location and availability — every worker pre-checked for compliance.</p></div>
+      <div class="step reveal"><span class="line"></span><div class="num">STEP 03</div><h4>Deploy</h4><p>Workers arrive briefed and badge-ready, often within 24 hours of your request landing.</p></div>
+      <div class="step reveal"><div class="num">STEP 04</div><h4>Manage</h4><p>Live attendance, cover for no-shows and consolidated weekly payroll — we run it, you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="sec" id="audience" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel clients reveal">
+        <div>
+          <span class="eb">For Clients</span>
+          <h3>Need staff immediately?</h3>
+          <p>Tell us what your operation needs and we'll have compliant, briefed workers on-site — fast.</p>
         </div>
-    </section>
-
-    <!-- Large Image Breakout -->
-    <section class="h-[40vh] md:h-[60vh] w-full relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" alt="Industrial Team" class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none px-4 text-center">
-            <h2 class="font-display text-4xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter mix-blend-overlay text-white opacity-90">The Way to Recruit</h2>
+        <a href="#contact" class="lnk-arrow gtext" data-modal="callback">Request a callback
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="panel candidates reveal">
+        <div>
+          <span class="eb">For Candidates</span>
+          <h3>Looking for your next shift?</h3>
+          <p>Weekly pay, real progression and roles across the UK's best industrial sites. Register in minutes.</p>
         </div>
-    </section>
+        <a href="#contact" class="lnk-arrow" style="color:var(--teal)" data-modal="candidate">Find work today
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Minimalist Footer -->
-    <footer class="bg-brand-dark pt-16 md:pt-24 pb-8 md:pb-12 border-t border-white/10 px-4 lg:px-12">
-        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
-            <div class="md:col-span-2">
-                <img class="h-10 md:h-12 w-auto mb-6 bg-white/90 p-1 rounded" src="assets/images/Logo PNG 2560x1280.png" alt="FastRec Logo">
-                <p class="text-gray-500 max-w-sm text-sm md:text-base">Driving the industrial sector forward with reliable, scalable staffing solutions.</p>
-            </div>
-            <div>
-                <h4 class="font-display font-bold uppercase mb-4 md:mb-6 text-sm tracking-widest text-white">Contact</h4>
-                <ul class="space-y-3 md:space-y-4 text-gray-500 text-sm">
-                    <li><a href="mailto:info@fastrec.co.uk" class="hover:text-brand-accent transition-colors">info@fastrec.co.uk</a></li>
-                    <li><a href="tel:+441145519988" class="hover:text-brand-accent transition-colors">+44 114 551 9988</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-display font-bold uppercase mb-4 md:mb-6 text-sm tracking-widest text-white">Headquarters</h4>
-                <ul class="space-y-3 md:space-y-4 text-gray-500 text-sm">
-                    <li>61 Bridge Street</li>
-                    <li>Kington, HR5 3DJ</li>
-                    <li>United Kingdom</li>
-                    <li class="pt-2 md:pt-4 text-xs text-gray-600">CRN: 13602183</li>
-                </ul>
-            </div>
+<!-- JOBS -->
+<section class="sec" id="jobs" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:760px;margin-bottom:0">
+      <span class="eyebrow"><span class="dot" style="background:var(--amber);box-shadow:0 0 12px var(--amber)"></span> Jobs available</span>
+      <h2>Live vacancies,<br>ready to start.</h2>
+      <p>Hand-picked roles across the UK's best industrial sites — apply in under two minutes.</p>
+    </div>
+
+    <div class="jobs-head reveal">
+      <div class="chips" role="group" aria-label="Filter jobs by category">
+        <button class="chip active" data-filter="all">All roles</button>
+        <button class="chip" data-filter="warehouse">Warehouse</button>
+        <button class="chip" data-filter="driving">Driving</button>
+        <button class="chip" data-filter="manufacturing">Manufacturing</button>
+        <button class="chip" data-filter="forklift">Forklift</button>
+      </div>
+      <span class="job-count" id="job-count" aria-live="polite">6 roles live</span>
+    </div>
+
+    <div class="job-grid reveal" id="job-grid"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="quote reveal">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote>"FastRec turned our peak season around. We went from chronic under-staffing to a fully covered night shift in under a week — and the on-site manager runs it better than we ever did."</blockquote>
+      <div class="who">
+        <span class="av">JM</span>
+        <div style="text-align:left"><b>James Mercer</b><span>Operations Director · National 3PL</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="glow1" aria-hidden="true"></span><span class="glow2" aria-hidden="true"></span>
+      <span class="eyebrow"><span class="dot"></span> Available now</span>
+      <h2 style="margin-top:18px">Let's build your<br><span class="gtext">workforce.</span></h2>
+      <p>Speak to a staffing specialist today. No long forms, no call centres — a direct line to a consultant who knows your sector.</p>
+      <div class="hero-cta">
+        <a href="tel:+441145519988" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3l2 5-2.5 1.5a11 11 0 005 5L17 12l5 2v3a2 2 0 01-2 2A16 16 0 013 5z" stroke-linejoin="round"/></svg>
+          0114 551 9988
+        </a>
+        <a href="mailto:info@fastrec.co.uk" class="btn btn-ghost">Email the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand" aria-label="FastRec — the way to recruit">
+          <img src="assets/logo-white.png" alt="FastRec — the way to recruit" class="brand-logo foot-logo">
+        </a>
+        <p>Driving the industrial sector forward with reliable, scalable staffing — the way to recruit.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Temporary Staffing</a></li>
+          <li><a href="#services">Permanent Hires</a></li>
+          <li><a href="#services">Workforce Management</a></li>
+          <li><a href="#services">Compliance &amp; Payroll</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#audience">For Clients</a></li>
+          <li><a href="#audience">For Candidates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li><a href="mailto:info@fastrec.co.uk">info@fastrec.co.uk</a></li>
+          <li><a href="tel:+441145519988">+44 114 551 9988</a></li>
+          <li style="color:var(--muted)">61 Bridge Street, Kington, HR5 3DJ</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="yr">2026</span> FastRec. All rights reserved · CRN 13602183</p>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.84-2 3.78-2 4 0 4.74 2.6 4.74 6V21H19v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7 8 8 10h-6l-5-6-5 6H3l8-9L3 3h6l4 5 5-5z"/></svg></a>
+        <a href="mailto:info@fastrec.co.uk" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6" stroke-linecap="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== MODAL FORMS (Web3Forms) ===================== -->
+
+<!-- Request a callback (clients, quick) -->
+<dialog id="modal-callback" aria-labelledby="cb-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <span class="eyebrow"><span class="dot" style="background:var(--violet);box-shadow:0 0 12px var(--violet)"></span> For clients</span>
+        <h3 id="cb-title">Request a callback</h3>
+        <p>Leave your details and a staffing consultant will call you back — usually within the hour.</p>
+      </div>
+      <button class="modal-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <form class="w3form" novalidate>
+      <input type="hidden" name="access_key" value="fc36a305-4923-4b03-b07b-7f62d7cd3993">
+      <input type="hidden" name="subject" value="New callback request — FastRec website">
+      <input type="hidden" name="from_name" value="FastRec Website">
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row2">
+        <div class="field"><label>Full name <span class="req">*</span></label><input type="text" name="name" autocomplete="name" required></div>
+        <div class="field"><label>Company</label><input type="text" name="company" autocomplete="organization"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" name="phone" autocomplete="tel" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label>What do you need?</label><textarea name="message" placeholder="Roles, site location, shifts, how many…"></textarea></div>
+      <button type="submit" class="btn btn-primary">Request callback</button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</dialog>
+
+<!-- Hire talent (clients, full enquiry) -->
+<dialog id="modal-hire" aria-labelledby="hire-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <span class="eyebrow"><span class="dot" style="background:var(--indigo);box-shadow:0 0 12px var(--indigo)"></span> For clients</span>
+        <h3 id="hire-title">Hire talent</h3>
+        <p>Tell us what your operation needs and we'll match compliant workers to your site — fast.</p>
+      </div>
+      <button class="modal-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <form class="w3form" novalidate>
+      <input type="hidden" name="access_key" value="fc36a305-4923-4b03-b07b-7f62d7cd3993">
+      <input type="hidden" name="subject" value="New client enquiry — Hire talent (FastRec website)">
+      <input type="hidden" name="from_name" value="FastRec Website">
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row2">
+        <div class="field"><label>Full name <span class="req">*</span></label><input type="text" name="name" autocomplete="name" required></div>
+        <div class="field"><label>Company <span class="req">*</span></label><input type="text" name="company" autocomplete="organization" required></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Work email <span class="req">*</span></label><input type="email" name="email" autocomplete="email" required></div>
+        <div class="field"><label>Phone</label><input type="tel" name="phone" autocomplete="tel"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Roles needed <span class="req">*</span></label><input type="text" name="roles" placeholder="e.g. Warehouse operatives" required></div>
+        <div class="field"><label>Number of workers</label><input type="number" name="workers" min="1" placeholder="e.g. 12"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Site location</label><input type="text" name="location" placeholder="Town / postcode"></div>
+        <div class="field"><label>Start date</label><input type="date" name="start_date"></div>
+      </div>
+      <div class="field"><label>Anything else?</label><textarea name="message" placeholder="Shift patterns, certifications required, volumes…"></textarea></div>
+      <button type="submit" class="btn btn-primary">Send enquiry</button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</dialog>
+
+<!-- Find work today (candidates, with CV upload) -->
+<dialog id="modal-candidate" aria-labelledby="cand-title">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <span class="eyebrow"><span class="dot" style="background:var(--teal);box-shadow:0 0 12px var(--teal)"></span> For candidates</span>
+        <h3 id="cand-title">Find work today</h3>
+        <p>Register in minutes. Upload your CV and we'll match you to shifts near you.</p>
+      </div>
+      <button class="modal-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
+    </div>
+    <form class="w3form" novalidate>
+      <input type="hidden" name="access_key" value="fc36a305-4923-4b03-b07b-7f62d7cd3993">
+      <input type="hidden" name="subject" value="New candidate registration — Find work (FastRec website)">
+      <input type="hidden" name="from_name" value="FastRec Website">
+      <input type="hidden" name="position" value="">
+      <input type="hidden" name="source" value="">
+
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row2">
+        <div class="field"><label>Full name <span class="req">*</span></label><input type="text" name="name" autocomplete="name" required></div>
+        <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" name="phone" autocomplete="tel" required></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Email</label><input type="email" name="email" autocomplete="email"></div>
+        <div class="field"><label>Location / postcode</label><input type="text" name="location" autocomplete="postal-code"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Preferred work</label>
+          <select name="preferred_work">
+            <option value="Warehouse / Picking">Warehouse / Picking</option>
+            <option value="Driving (HGV / Van)">Driving (HGV / Van)</option>
+            <option value="Manufacturing / Production">Manufacturing / Production</option>
+            <option value="Forklift (FLT)">Forklift (FLT)</option>
+            <option value="Other / Not sure">Other / Not sure</option>
+          </select>
         </div>
-        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 pt-8 border-t border-white/10 text-center md:text-left gap-4 md:gap-0">
-            <p>&copy; 2026 FastRec. All rights reserved.</p>
-            <div class="space-x-6">
-                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-            </div>
+        <div class="field"><label>Availability</label>
+          <select name="availability">
+            <option value="Immediately">Immediately</option>
+            <option value="Within a week">Within a week</option>
+            <option value="2+ weeks">2+ weeks</option>
+          </select>
         </div>
-    </footer>
+      </div>
+      <div class="field">
+        <label>Upload your CV</label>
+        <input type="file" name="cv" accept=".pdf,.doc,.docx,.rtf,.txt">
+        <div class="hint">PDF or Word document · max 5 MB. Optional, but it speeds things up.</div>
+      </div>
+      <div class="field"><label>Anything else?</label><textarea name="message" placeholder="Licences, experience, preferred shifts…"></textarea></div>
+      <button type="submit" class="btn btn-primary">Register for work</button>
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</dialog>
 
-    <!-- GSAP & Mobile Menu Script -->
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden');
-        });
+<script>
+document.documentElement.classList.remove('no-js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.from(".gsap-hero h1", { y: 150, duration: 1, ease: "power4.out", stagger: 0.15, delay: 0.1 });
-        gsap.from(".gsap-fade", { opacity: 0, y: 20, duration: 0.8, delay: 0.6, ease: "power3.out" });
+// Nav scroll state
+const header = document.getElementById('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
 
-        gsap.utils.toArray('.gsap-scroll').forEach(item => {
-            gsap.from(item, {
-                scrollTrigger: { trigger: item, start: "top 90%" },
-                opacity: 0, y: 30, duration: 0.6, ease: "power3.out"
-            });
-        });
-    </script>
+// Mobile menu
+const burger = document.getElementById('burger'), mobile = document.getElementById('mobile');
+const toggleMenu = open => {
+  mobile.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  burger.setAttribute('aria-expanded', String(open));
+  burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+burger.addEventListener('click', () => toggleMenu(!mobile.classList.contains('open')));
+mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Count-up
+const fmt = n => n.toLocaleString('en-GB');
+const runCount = el => {
+  const to = +el.dataset.to, suffix = el.dataset.suffix || '';
+  if (reduce){ el.textContent = fmt(to) + suffix; return; }
+  const dur = 1500, t0 = performance.now();
+  const tick = now => {
+    const p = Math.min((now - t0)/dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(Math.round(to * eased)) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+const cio = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ runCount(e.target); cio.unobserve(e.target);} });
+}, {threshold:.6});
+document.querySelectorAll('.count').forEach(el => cio.observe(el));
+
+// Year
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// ---- Modal forms (Web3Forms) ----
+document.querySelectorAll('[data-modal]').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    const dlg = document.getElementById('modal-' + trigger.dataset.modal);
+    if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
+  });
+});
+document.querySelectorAll('dialog').forEach(dlg => {
+  dlg.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => dlg.close()));
+  // click outside the .modal closes
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+});
+
+document.querySelectorAll('form.w3form').forEach(form => {
+  const status = form.querySelector('.form-status');
+  const btn = form.querySelector('button[type=submit]');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    status.className = 'form-status';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+      if (json.success) {
+        status.classList.add('ok');
+        status.textContent = "Thanks — we've got it. A FastRec consultant will be in touch shortly.";
+        form.reset();
+      } else {
+        status.classList.add('err');
+        status.textContent = (json.message || 'Something went wrong.') + ' You can also call us on 0114 551 9988.';
+      }
+    } catch (err) {
+      status.classList.add('err');
+      status.textContent = 'Network error — please try again, or call 0114 551 9988.';
+    } finally {
+      btn.disabled = false; btn.textContent = label;
+    }
+  });
+});
+
+// ============================================================
+//  JOB BOARD — editable listings
+//  ------------------------------------------------------------
+//  Three ways to manage the jobs shown on the page. Use whichever suits:
+//
+//  1) QUICK / LOCAL  — edit the DEFAULT_JOBS array just below.
+//     Works everywhere, including when the file is opened directly.
+//
+//  2) JSON FILE      — edit "jobs.json" sitting next to this page.
+//     Overrides DEFAULT_JOBS automatically, BUT only when the site is
+//     hosted online (http/https). Opening the file directly can't read it.
+//
+//  3) GOOGLE SHEET   — publish a Google Sheet, then paste its opensheet URL
+//     into JOBS_CONFIG.sheetUrl below. Columns must be named:
+//     title, category, type, location, pay, shift, role
+//     (See jobs-README.txt for step-by-step instructions.)
+//
+//  category must be one of: warehouse | driving | manufacturing | forklift
+//  role should match a dropdown option in the "Find work" form, e.g.
+//     "Warehouse / Picking", "Driving (HGV / Van)",
+//     "Manufacturing / Production", "Forklift (FLT)", "Other / Not sure"
+// ============================================================
+const JOBS_CONFIG = {
+  jsonUrl: 'jobs.json',  // relative JSON file (used when hosted online)
+  sheetUrl: ''           // e.g. 'https://opensheet.elk.sh/<sheet-id>/Jobs' — leave '' to disable
+};
+
+const DEFAULT_JOBS = [
+  { title: 'Warehouse Operative',        category: 'warehouse',     type: 'Temp',        location: 'Sheffield · S9',  pay: '£11.80 – £13.20 / hr',     shift: 'Days & Nights · Immediate', role: 'Warehouse / Picking' },
+  { title: 'Class 2 (HGV) Driver',       category: 'driving',       type: 'Temp → Perm', location: 'Leeds · LS10',    pay: '£15.50 / hr',              shift: 'Multi-drop · Days',         role: 'Driving (HGV / Van)' },
+  { title: 'Counterbalance FLT Driver',  category: 'forklift',      type: 'Temp',        location: 'Rotherham · S60', pay: '£13.50 / hr',              shift: 'Days · Valid FLT licence',  role: 'Forklift (FLT)' },
+  { title: 'Production Operative',       category: 'manufacturing', type: 'Temp',        location: 'Barnsley · S75',  pay: '£11.44 – £12.10 / hr',     shift: 'Rotating shifts',           role: 'Manufacturing / Production' },
+  { title: 'Warehouse Team Leader',      category: 'warehouse',     type: 'Permanent',   location: 'Doncaster · DN4', pay: '£28,000 – £32,000 / yr',   shift: 'Full-time · Mon–Fri',       role: 'Warehouse / Picking' },
+  { title: 'Class 1 (HGV) Driver',       category: 'driving',       type: 'Temp → Perm', location: 'Wakefield · WF2', pay: '£17.00 / hr',              shift: 'Trunking · Nights',         role: 'Driving (HGV / Van)' }
+];
+
+const CAT_LABELS = { warehouse: 'Warehouse', driving: 'Driving', manufacturing: 'Manufacturing', forklift: 'Forklift' };
+const ICON_PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>';
+const ICON_PAY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.4"/></svg>';
+const ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>';
+const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function jobCardHTML(j) {
+  const cat = String(j.category || '').toLowerCase().trim();
+  const label = CAT_LABELS[cat] || (j.category || 'Role');
+  return `<article class="job" data-cat="${esc(cat)}">
+    <div class="job-top"><span class="job-cat cat-${esc(cat)}">${esc(label)}</span><span class="job-type">${esc(j.type || '')}</span></div>
+    <h3>${esc(j.title || '')}</h3>
+    <div class="job-meta">
+      <div>${ICON_PIN} ${esc(j.location || '')}</div>
+      <div class="pay">${ICON_PAY} ${esc(j.pay || '')}</div>
+      <div>${ICON_CLOCK} ${esc(j.shift || '')}</div>
+    </div>
+    <button class="job-apply" data-apply data-role="${esc(j.role || 'Other / Not sure')}" data-title="${esc(j.title || '')}">Apply now ${ICON_ARROW}</button>
+  </article>`;
+}
+
+const jobGrid = document.getElementById('job-grid');
+const jobCount = document.getElementById('job-count');
+const chips = document.querySelectorAll('.chip');
+let currentFilter = 'all';
+
+function applyFilter() {
+  let n = 0;
+  jobGrid.querySelectorAll('.job').forEach(job => {
+    const show = currentFilter === 'all' || job.dataset.cat === currentFilter;
+    job.classList.toggle('hide', !show);
+    if (show) n++;
+  });
+  if (jobCount) jobCount.textContent = n + (n === 1 ? ' role live' : ' roles live');
+}
+function renderJobs(list) {
+  jobGrid.innerHTML = list.map(jobCardHTML).join('');
+  applyFilter();
+}
+
+chips.forEach(chip => chip.addEventListener('click', () => {
+  chips.forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  currentFilter = chip.dataset.filter;
+  applyFilter();
+}));
+
+// Apply button (event-delegated, since cards are rendered dynamically)
+jobGrid.addEventListener('click', e => {
+  const btn = e.target.closest('[data-apply]');
+  if (!btn) return;
+  const dlg = document.getElementById('modal-candidate');
+  if (!dlg) return;
+  const sel = dlg.querySelector('select[name="preferred_work"]');
+  if (sel && btn.dataset.role && [...sel.options].some(o => o.value === btn.dataset.role)) sel.value = btn.dataset.role;
+  const pos = dlg.querySelector('input[name="position"]');
+  if (pos) pos.value = btn.dataset.title || '';
+  const src = dlg.querySelector('input[name="source"]');
+  if (src) src.value = 'Job board — ' + (btn.dataset.title || '');
+  if (dlg.showModal) dlg.showModal();
+});
+
+// Render defaults instantly, then try the remote source (JSON file or Google Sheet)
+renderJobs(DEFAULT_JOBS);
+(async function loadRemoteJobs() {
+  try {
+    const url = JOBS_CONFIG.sheetUrl || JOBS_CONFIG.jsonUrl;
+    if (!url) return;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) return;
+    const list = await res.json();
+    if (Array.isArray(list) && list.length) renderJobs(list);
+  } catch (err) {
+    // No remote source reachable (e.g. opened as a local file) — keep DEFAULT_JOBS.
+  }
+})();
+</script>
 </body>
 </html>

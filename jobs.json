@@ -1,0 +1,8 @@
+[
+  { "title": "Warehouse Operative",       "category": "warehouse",     "type": "Temp",        "location": "Sheffield · S9",  "pay": "£11.80 – £13.20 / hr",   "shift": "Days & Nights · Immediate", "role": "Warehouse / Picking" },
+  { "title": "Class 2 (HGV) Driver",       "category": "driving",       "type": "Temp → Perm", "location": "Leeds · LS10",    "pay": "£15.50 / hr",            "shift": "Multi-drop · Days",         "role": "Driving (HGV / Van)" },
+  { "title": "Counterbalance FLT Driver",  "category": "forklift",      "type": "Temp",        "location": "Rotherham · S60", "pay": "£13.50 / hr",            "shift": "Days · Valid FLT licence",  "role": "Forklift (FLT)" },
+  { "title": "Production Operative",       "category": "manufacturing", "type": "Temp",        "location": "Barnsley · S75",  "pay": "£11.44 – £12.10 / hr",   "shift": "Rotating shifts",           "role": "Manufacturing / Production" },
+  { "title": "Warehouse Team Leader",      "category": "warehouse",     "type": "Permanent",   "location": "Doncaster · DN4", "pay": "£28,000 – £32,000 / yr", "shift": "Full-time · Mon–Fri",       "role": "Warehouse / Picking" },
+  { "title": "Class 1 (HGV) Driver",       "category": "driving",       "type": "Temp → Perm", "location": "Wakefield · WF2", "pay": "£17.00 / hr",            "shift": "Trunking · Nights",         "role": "Driving (HGV / Van)" }
+]
