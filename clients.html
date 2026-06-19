@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Talent | FastRec Clients</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            light: '#f4f4f5',
+                            accent: '#2563eb',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0a0a; color: #f4f4f5; overflow-x: hidden; }
+        .glass-nav { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .text-outline { -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15); color: transparent; }
+        .hover-lift { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-lift:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.2); }
+        .img-zoom { transition: transform 0.7s ease; }
+        .group:hover .img-zoom { transform: scale(1.05); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Premium Glassmorphism Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-screen-2xl mx-auto px-4 lg:px-12 h-20 md:h-24 flex items-center justify-between">
+            <a href="index.html" class="flex-shrink-0 z-20">
+                <img class="h-8 md:h-10 w-auto object-contain bg-white/90 p-1 rounded" src="assets/images/Logo PNG 2560x1280.png" alt="FastRec">
+            </a>
+            
+            <div class="hidden lg:flex space-x-12 absolute left-1/2 -translate-x-1/2">
+                <a href="clients.html" class="text-sm font-bold tracking-wide text-brand-accent transition-colors">Clients</a>
+                <a href="candidates.html" class="text-sm font-medium tracking-wide text-gray-400 hover:text-white transition-colors">Candidates</a>
+                <a href="jobs.html" class="text-sm font-medium tracking-wide text-gray-400 hover:text-white transition-colors">Job Board</a>
+            </div>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="contact.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Contact</a>
+                <a href="contact.html" class="bg-white text-black px-6 py-3 rounded-full text-sm font-bold tracking-wide hover:bg-brand-accent hover:text-white transition-all duration-300">Submit CV</a>
+            </div>
+
+            <button id="mobile-menu-button" class="lg:hidden text-white z-20 p-2 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-brand-dark flex flex-col items-center justify-center space-y-8 text-2xl z-10">
+            <a href="clients.html" class="text-brand-accent transition-colors font-bold">Clients</a>
+            <a href="candidates.html" class="hover:text-brand-accent transition-colors">Candidates</a>
+            <a href="jobs.html" class="hover:text-brand-accent transition-colors">Job Board</a>
+            <a href="contact.html" class="hover:text-brand-accent transition-colors">Contact</a>
+            <a href="contact.html" class="bg-brand-accent text-white px-8 py-4 rounded-full font-bold mt-4">Submit CV</a>
+        </div>
+    </nav>
+
+    <!-- Moody Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center pt-28 pb-12 px-4 lg:px-12 overflow-hidden border-b border-white/10">
+        <div class="absolute inset-0 z-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover object-center filter grayscale" alt="Industrial Logistics">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-screen-2xl mx-auto w-full flex flex-col justify-center">
+            <div class="gsap-hero overflow-hidden mb-2">
+                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight font-extrabold tracking-tighter uppercase w-full break-words text-outline">
+                    Scale Your
+                </h1>
+            </div>
+            <div class="gsap-hero overflow-hidden mb-8">
+                <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight font-extrabold tracking-tighter uppercase w-full break-words text-white">
+                    Operations
+                </h1>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end mt-8 md:mt-16 gsap-fade">
+                <p class="text-lg md:text-2xl text-gray-400 font-light max-w-xl leading-relaxed border-l-2 border-brand-accent pl-6">
+                    When supply chains surge, your workforce needs to adapt instantly. We engineer reliable, compliant staffing infrastructure for the UK's top industrial sites.
+                </p>
+                <div class="flex md:justify-end">
+                    <a href="contact.html" class="bg-white text-black text-center px-10 py-5 rounded-full font-bold tracking-widest uppercase hover:bg-brand-accent hover:text-white transition-all text-sm md:text-base w-full md:w-auto">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Asymmetrical Bento Grid -->
+    <section class="py-20 md:py-32 px-4 lg:px-12 bg-zinc-950">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="mb-20 gsap-scroll flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div>
+                    <h2 class="font-display text-4xl md:text-6xl font-bold uppercase text-white tracking-tighter">Core<br><span class="text-gray-600">Capabilities</span></h2>
+                </div>
+                <p class="text-gray-400 max-w-md text-lg">Targeted recruitment solutions designed strictly for warehousing, logistics, and manufacturing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+                
+                <!-- Large Card: Temporary Staffing -->
+                <div class="lg:col-span-8 group bg-zinc-900 rounded-[2rem] overflow-hidden relative min-h-[500px] border border-white/5 hover-lift gsap-scroll flex items-end p-8 md:p-12">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 filter grayscale img-zoom" alt="Warehouse Staff">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 max-w-xl">
+                        <div class="bg-brand-accent/20 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest inline-block mb-6 backdrop-blur-md">Rapid Deployment</div>
+                        <h3 class="text-3xl md:text-5xl font-display font-bold text-white mb-4 leading-tight">Temporary<br>Staffing</h3>
+                        <p class="text-gray-300 text-lg mb-8">Seamlessly manage peak seasons and volume spikes with our active pool of reliable operatives, drivers, and line workers.</p>
+                        <ul class="space-y-3 text-sm text-gray-400 font-medium">
+                            <li class="flex items-center"><span class="text-brand-accent mr-3">●</span> Same-day dispatch available</li>
+                            <li class="flex items-center"><span class="text-brand-accent mr-3">●</span> 100% Right-to-Work compliant</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Small Card: Speed & Stats -->
+                <div class="lg:col-span-4 bg-brand-accent rounded-[2rem] p-8 md:p-12 flex flex-col justify-between border border-blue-500/30 hover-lift gsap-scroll">
+                    <svg class="w-12 h-12 text-white/50 mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div>
+                        <h3 class="text-5xl md:text-7xl font-display font-bold text-white mb-2 tracking-tighter">24hr</h3>
+                        <p class="text-blue-200 text-xl font-light">Average turnaround time for urgent temporary cover requests.</p>
+                    </div>
+                </div>
+
+                <!-- Medium Card: Permanent -->
+                <div class="lg:col-span-5 group bg-zinc-900 rounded-[2rem] p-8 md:p-12 border border-white/5 hover-lift gsap-scroll relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 opacity-10">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-display font-bold text-white mb-4">Permanent Hires</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">We act as an extension of your HR team to headhunt top-tier industrial management, supervisors, and highly skilled technical personnel.</p>
+                        <a href="contact.html" class="text-brand-accent text-sm font-bold uppercase tracking-widest hover:text-white transition-colors flex items-center">Start Search <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+                    </div>
+                </div>
+
+                <!-- Large Card: Workforce Management -->
+                <div class="lg:col-span-7 group bg-zinc-900 rounded-[2rem] overflow-hidden relative min-h-[400px] border border-white/5 hover-lift gsap-scroll flex items-end p-8 md:p-12">
+                     <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1616423640778-28d1b50228df?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-30 filter grayscale img-zoom" alt="Logistics Tech">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 w-full flex flex-col md:flex-row md:items-end justify-between gap-8">
+                        <div class="max-w-md">
+                            <h3 class="text-3xl font-display font-bold text-white mb-4">Workforce Management</h3>
+                            <p class="text-gray-300">For high-volume sites. We take full ownership of daily coordination, shift rotas, and on-site account management.</p>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-400 font-medium whitespace-nowrap">
+                            <li class="flex items-center"><span class="text-brand-accent mr-3">✓</span> Automated Allocations</li>
+                            <li class="flex items-center"><span class="text-brand-accent mr-3">✓</span> Attendance Tracking</li>
+                            <li class="flex items-center"><span class="text-brand-accent mr-3">✓</span> Payroll Integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Aggressive CTA -->
+    <section class="py-32 px-4 lg:px-12 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 blur-3xl rounded-full bg-brand-accent translate-x-1/3 -translate-y-1/4 pointer-events-none"></div>
+        <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10 gsap-scroll">
+            <div>
+                <h2 class="font-display text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter mb-4">Need Staff <br><span class="text-outline">Immediately?</span></h2>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                <a href="contact.html" class="bg-brand-accent text-white px-10 py-5 rounded-full font-bold tracking-widest uppercase hover:bg-blue-600 transition-all text-center">Request Callback</a>
+                <a href="tel:+441145519988" class="border border-white/20 text-white px-10 py-5 rounded-full font-bold tracking-widest hover:bg-white hover:text-black transition-all text-center flex items-center justify-center"><svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 0114 551 9988</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimalist Footer -->
+    <footer class="bg-brand-dark pt-16 md:pt-24 pb-8 md:pb-12 border-t border-white/5 px-4 lg:px-12">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
+            <div class="md:col-span-2">
+                <img class="h-10 md:h-12 w-auto mb-6 bg-white/90 p-1 rounded" src="assets/images/Logo PNG 2560x1280.png" alt="FastRec Logo">
+                <p class="text-gray-500 max-w-sm text-sm md:text-base">Driving the industrial sector forward with reliable, scalable staffing solutions.</p>
+            </div>
+            <div>
+                <h4 class="font-display font-bold uppercase mb-4 md:mb-6 text-sm tracking-widest text-white">Contact</h4>
+                <ul class="space-y-3 md:space-y-4 text-gray-500 text-sm">
+                    <li><a href="mailto:info@fastrec.co.uk" class="hover:text-brand-accent transition-colors">info@fastrec.co.uk</a></li>
+                    <li><a href="tel:+441145519988" class="hover:text-brand-accent transition-colors">+44 114 551 9988</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display font-bold uppercase mb-4 md:mb-6 text-sm tracking-widest text-white">Headquarters</h4>
+                <ul class="space-y-3 md:space-y-4 text-gray-500 text-sm">
+                    <li>61 Bridge Street</li>
+                    <li>Kington, HR5 3DJ</li>
+                    <li>United Kingdom</li>
+                    <li class="pt-2 md:pt-4 text-xs text-gray-600">CRN: 13602183</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 pt-8 border-t border-white/5 text-center md:text-left gap-4 md:gap-0">
+            <p>&copy; 2026 FastRec. All rights reserved.</p>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Mobile Menu Script -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.from(".gsap-hero h1", { y: 150, duration: 1, ease: "power4.out", stagger: 0.15, delay: 0.1 });
+        gsap.from(".gsap-fade", { opacity: 0, y: 20, duration: 0.8, delay: 0.6, ease: "power3.out" });
+
+        gsap.utils.toArray('.gsap-scroll').forEach(item => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: "top 90%" },
+                opacity: 0, y: 40, duration: 0.8, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+</html>
